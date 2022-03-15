@@ -4,10 +4,10 @@ import tweepy
 import time
 
 # Authenticate to twitter
-consumer_key='4mkGugUhietXAVp3cia2HToPQ'
-consumer_secret='SM0MQNXiUlg6vnVB04LnJne2wGtg2hwg6TxEFzWDJKxNru3Wlv'
-access_key='1417823014989803522-LBUqaevW75pYSq7KKQv1b5uNOcSwT5'
-access_secret='Kvtf6ymVqjVTQX26S2sD1XDdwi6F8pwSkJIS031bcLaX5'
+consumer_key='Q0lv36a6kndbBY2yGdvJR4GMJ'
+consumer_secret='d41e9LC1ssv8PM1GQOx8nG1nUQzZ9IRDDB32y6te3WmBSWr21z'
+access_key='1503045545463627779-hgRSV7IoQg7lamzIFfnfy5sRoDJIDp'
+access_secret='Pr7ZHW9CaACNWrB1noWiC6Kzkq70JaecXRUqcVfMDxzdL'
 
 
 # Create API object
@@ -15,13 +15,13 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 user = api.me()
-search= 'Travelphotography' 
+search= 'WomenInMining', 'WomenMiners' 
 num_of_tweets = 700
 for tweet in tweepy.Cursor(api.search,search).items(num_of_tweets):
     try:
         tweet.retweet()
         print("Retweet")
-        time.sleep(0)
+        time.sleep(5)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
